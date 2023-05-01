@@ -1,0 +1,144 @@
+movie ticket.html
+-------------------------------
+<h2>Movie Ticket Booking</h2>
+<div>
+<label>Movie Name:</label>
+<input type="text" [(ngModel)]="movieName" />
+</div>
+<div>
+<label>Date:</label>
+<input type="date" [(ngModel)]="selectedDate" />
+</div>
+<div>
+<label>Time:</label>
+<select [(ngModel)]="selectedTime">
+<option value="10:00 AM">10:00 AM</option>
+<option value="1:00 PM">1:00 PM</option>
+<option value="4:00 PM">4:00 PM</option>
+<option value="7:00 PM">7:00 PM</option>
+</select>
+</div>
+<button (click)="bookTicket()">Book Ticket</button>
+
+ 
+
+movie.ts
+-------------------------------------------------------------------------
+import { Component} from '@angular/core';
+
+ 
+
+ 
+
+@Component({
+  selector: 'app-book-ticket',
+  templateUrl: './book-ticket.component.html',
+  styleUrls: ['./book-ticket.component.css']
+})
+export class BookTicketComponent {
+
+ 
+
+  movieName: String | undefined;
+  selectedDate: Date | undefined;
+  selectedTime: String | undefined;
+
+ 
+
+
+  bookTicket(){
+    console.log('Movie Name', this.movieName);
+    console.log('Movie Date', this.selectedDate);
+    console.log('Movie Time', this.selectedTime);
+    alert("Ticket Booked");
+  }
+
+ 
+
+
+
+
+    }
+app.component.html
+-----------------------------------------
+<header>
+<nav>
+<a routerLink = "login">login</a>
+<a routerLink = "register">Registration</a>
+<a routerLink = "upcoming-movies">Upcoming movies</a>
+<a routerLink = "book-ticket">Book Ticket</a>
+</nav>
+
+ 
+
+</header>
+<div>
+<router-outlet></router-outlet>
+</div>
+
+ 
+
+app.routing.module.ts
+----------------------------------------
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { BookTicketComponent } from './moviecomponent/book-ticket/book-ticket.component';
+import { LoginComponent } from './moviecomponent/login/login.component';
+import { RegisterComponent } from './moviecomponent/register/register.component';
+import { UpcomingMoviesComponent } from './moviecomponent/upcoming-movies/upcoming-movies.component';
+
+ 
+
+const routes: Routes = [
+  {path: 'login', component:LoginComponent },
+  {path: 'register', component:RegisterComponent},
+  {path: 'upcoming-movies', component:UpcomingMoviesComponent},
+  {path:'book-ticket',component:BookTicketComponent}
+];
+
+ 
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+ 
+
+app.module.ts
+----------------------------------
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+ 
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { MoviecomponentComponent } from './moviecomponent/moviecomponent.component';
+import { LoginComponent } from './moviecomponent/login/login.component';
+import { RegisterComponent } from './moviecomponent/register/register.component';
+import { UpcomingMoviesComponent } from './moviecomponent/upcoming-movies/upcoming-movies.component';
+import { BookTicketComponent } from './moviecomponent/book-ticket/book-ticket.component';
+import { FormsModule } from '@angular/forms';
+
+ 
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    MoviecomponentComponent,
+    LoginComponent,
+    RegisterComponent,
+    UpcomingMoviesComponent,
+    BookTicketComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
