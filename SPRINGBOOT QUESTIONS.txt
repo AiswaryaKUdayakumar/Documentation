@@ -1,0 +1,10 @@
+1. write a springboot application for the given data in the databases.Create a dummy data for following fields.
+Id,Location,acres and price.
+Get endpoints.
+Get the total number of acres available in the particular location.
+Retrieve the data first ten availability of highest to lowest,based on acres.
+Retrieve the data first ten availability of highest to lowest,based on fields.
+
+2.USE THE PAGINATION AND SORTING MECHANISM IN SPRINGBOOT TO IMPLEMENT THIS APPLICATION.
+
+

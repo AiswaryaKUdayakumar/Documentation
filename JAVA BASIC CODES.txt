@@ -1,0 +1,102 @@
+ANAGRAM
+
+import java.util.*;
+public class HelloWorld{
+
+     public static void main(String []args){
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.next();
+        String s2=sc.next();
+        char[] ch1=s1.toCharArray();
+        char[] ch2=s2.toCharArray();
+       // List<String> words=Arrays.asList();
+        Arrays.sort(ch1);
+        Arrays.sort(ch2);
+        if(Arrays.equals(ch1,ch2)){
+            System.out.println("is Anagram");
+        }
+        else{
+            System.out.println("Not Anagram");
+        }
+     }
+}
+........................................................................................
+   
+ANAGRAM GROUPS
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class AnagramProgram {
+
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+ System.out.print("Enter a list of words separated by spaces:");
+ String input = scanner.nextLine();
+
+ List<String> words = Arrays.asList(input.split("\\s+"));
+ // Group words by their sorted letters
+Map<String, List<String>> anagramGroups =
+words.stream() .collect(Collectors.groupingBy(word -> sortLetters(word)));
+// Print anagram groups
+System.out.println("Anagram groups:");
+anagramGroups.values().forEach(System.out::println);
+}
+
+
+
+private static String sortLetters(String word) {
+ // Sort letters of a word and concatenate them
+return Arrays.stream(word.split("")).sorted().collect(Collectors.joining());
+ }
+} 
+
+...............................................................................................
+
+LARGEST NUMBER IN A STRING
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int s=sc.nextInt();
+        int arr[]=new int[s];
+        for(int i=0;i<s;i++){
+            arr[i]=sc.nextInt();
+        }
+        int max=0;
+        for(int i=0;i<s;i++){
+            if(arr[i]>max){
+                max=arr[i];
+            }
+        }
+        System.out.println(max);
+    }
+}
+
+.............................................................................................
+
+COPY ELEMENTS FROM ONE TO ANOTHER ARRAY
+
+public class Main{
+    public static void main(String[] args){
+        int[] arr1=new int[]{1,2,3,4,5,10};
+        int[] arr2=new int[arr1.length];
+        int i=0;
+        System.out.print("original array=");
+        
+        for(i=0;i<arr1.length;i++){
+            arr2[i]=arr1[i];
+            System.out.print(arr1[i]+" ");
+        }
+        System.out.print("new array=");
+        for(i=0;i<arr2.length;i++){
+        
+        System.out.print(arr2[i]+" ");
+        
+        }
+    }
+}

@@ -1,0 +1,19 @@
+1.List of students.write a logic to get the  males and females using map function.
+
+2.There is 1 lakh student objects are created in it 20 thousand are null objects.filter out null objects.
+
+3.What is the use of default method in interface.justify.?
+
+................................................................................................................
+
+1.
+Map<String,List<Students>> stud=New HashMap<>();
+Map<String> std=stud.stream().collect(Collectors.groupingBy(student -> (String) student.get("gender")));
+
+2.
+List<Student> stud=new ArrayList<>();
+List<Student> notnullstud=stud.stream().filter(t->t!null).collect(Collectors.toList());
+
+3.
+
+
