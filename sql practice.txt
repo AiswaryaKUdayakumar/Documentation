@@ -1,0 +1,69 @@
+Table: Customers
+
+CustomerID | CustomerName | ContactName | Country
+-----------|--------------|-------------|--------
+1          | Alfreds      | Maria       | Germany
+2          | Ana Trujillo  | Ana         | Mexico
+3          | Antonio      | Antonio     | Mexico
+
+
+Table: Orders
+
+OrderID | CustomerID | OrderDate
+--------|------------|----------
+1       | 1          | 2022-01-01
+2       | 2          | 2022-02-01
+3       | 3          | 2022-03-01
+
+
+
+Write a SQL query to join these two tables and return the following columns: CustomerName, ContactName, Country, and OrderDate.
+SELECT Customers.CustomerName, Customers.ContactName, Customers.Country, Orders.OrderDate
+FROM Customers
+JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+.....................................................................................................................................................
+Table: Employees
+
+EmployeeID | EmployeeName | Department
+-----------|--------------|-----------
+1          | Alice        | Sales
+2          | Bob          | Engineering
+3          | Charlie      | Sales
+
+
+Table: Sales
+
+SaleID | EmployeeID | SaleAmount
+-------|------------|-----------
+1      | 1          | 1000
+2      | 3          | 500
+3      | 1          | 2000
+
+
+Write a SQL query to join these two tables and return the total sales amount for each employee.
+SELECT Employees.EmployeeName, SUM(Sales.SaleAmount) AS TotalSales
+FROM Employees
+LEFT JOIN Sales ON Employees.EmployeeID = Sales.EmployeeID
+GROUP BY Employees.EmployeeName;
+..............................................................................................................................................................
+Write a query to retrieve the names of all employees and their respective department names. 
+The Employees table has a column named 'DepartmentID', and the Departments table has a column named 'ID'.
+
+SELECT Employees.Name, Departments.DepartmentName
+FROM Employees
+JOIN Departments ON Employees.DepartmentID = Departments.ID;
+.............................................................................................................................................................
+
+Write a query to retrieve the name, salary, and department name of all employees who work in the 'Marketing' department.
+
+Write a query to retrieve the names of all employees who work in the 'Sales' department and have a salary greater than 50000.
+
+Write a query to retrieve the names of all employees who do not have a manager assigned to them. The Employees table has a 
+column named 'ManagerID' which refers to the ID of another employee in the same table.
+
+Write a query to retrieve the name and salary of all employees who work in the same department as employee 'John Smith', excluding 'John Smith' himself.
+
+Write a query to retrieve the name and salary of the employee who has the highest salary in each department.
+
+Write a query to retrieve the name and salary of the employee who has the second-highest salary in the 'Finance' department.
+
