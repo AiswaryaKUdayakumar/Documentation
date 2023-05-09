@@ -1,0 +1,18 @@
+select upper(first_name) as EmpName from employee;
+select count(*)from department where department_name="testing";
+select current_date();
+select count(*) from employee join 
+department on employee.department_id=department.department_id where department_name="testing";
+select substr(first_name,1,4) from employee;
+select salary from employee where salary between 50000 and 100000;
+select * from employee where first_name like 's%';
+select * from  employee limit 4;
+select concat(first_name," ",last_name) as fullname from employee;
+select * from employee where first_name like '%[a-e]'; 
+select count(*) from department where location='Trivandrum';
+
+select * from department where location='kozhikode';
+select salary from employee where first_name is not null;
+update employee set first_name='Meenu', salary='50000' where last_name='Sajeevan';
+delete from employee where first_name='meeanakshi';
+select max(salary) from employee;
